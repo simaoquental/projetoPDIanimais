@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* Isto garante que o fundo do site seja o cinza clarinho da foto */
+body {
+  @apply bg-slate-50;
+  margin: 0;
+  font-family: sans-serif;
+}
