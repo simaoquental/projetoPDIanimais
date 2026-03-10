@@ -1,7 +1,15 @@
 import { Mail, Lock, HeartPulse } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  // Função que corre quando clicas em "Entrar"
+  const handleLogin = (e) => {
+    e.preventDefault(); // Impede a página de recarregar
+    navigate('/home'); // Leva-te para o Dashboard
+  };
+
   return (
     <div className="min-h-screen w-full bg-[#f8fafc] flex flex-col items-center pt-12 px-6">
       
@@ -9,7 +17,7 @@ export default function Login() {
         <div className="bg-[#14b8a6] p-4 rounded-[1.25rem] shadow-sm mb-4">
           <HeartPulse size={48} className="text-white" strokeWidth={1.5} />
         </div>
-        <h1 className="text-4xl font-bold text-[#134e4a] tracking-tight mb-2">PawLife</h1>
+        <h1 className="text-4xl font-bold text-[#134e4a] tracking-tight mb-2">PetSaúde</h1>
         <p className="text-slate-500 font-medium max-w-[300px] leading-relaxed">
           A plataforma completa para o bem-estar do seu melhor amigo.
         </p>
@@ -18,7 +26,7 @@ export default function Login() {
       <div className="bg-white p-10 rounded-[2.5rem] shadow-sm w-full max-w-[440px] border border-slate-100">
         <h2 className="text-[26px] font-bold text-[#0f172a] text-center mb-10">Aceda à sua conta</h2>
 
-        <form className="flex flex-col gap-6">
+        <form onSubmit={handleLogin} className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label className="text-sm font-bold text-slate-700 ml-1">Email</label>
             <div className="relative h-12">
